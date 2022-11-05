@@ -1,0 +1,15 @@
+#6. write a function which will be able to read all the mails 
+
+import smtplib, ssl
+port =465
+smtp_server = 'smtp.gmail.com'
+senders_mail= 'shaibaabdulkarim@gmail'
+recievers_mail= 'shaibana@hotmail.com'
+password= 'Passcode'
+message="""This is my msg from Python"""
+
+context = ssl.create_default_context()
+
+with smtplib.SMTP_SSL(smtp_server,port,context=context) as server:
+     server.login(senders_mail,password)
+     server.sendmail(senders_mail,recievers_mail,message)
